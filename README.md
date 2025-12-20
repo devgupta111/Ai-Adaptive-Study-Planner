@@ -1,5 +1,7 @@
 # Adaptive Study Planner
 
+🔗 **Live Demo:** https://ai-adaptive-study-planner.streamlit.app/
+
 An AI-powered study planning system that generates personalized learning paths and schedules using A* search, constraint-based scheduling, and LLM-driven curriculum generation.
 
 ## Features
