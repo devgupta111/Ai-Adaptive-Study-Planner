@@ -195,4 +195,4 @@ else:
 
 # Footer
 st.markdown("---")
-st.caption("Powered by AI • Built with Streamlit • BML Munjal University")
+st.caption("Powered by AI • Built with Streamlit")
