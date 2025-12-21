@@ -59,6 +59,19 @@ with st.sidebar:
     
     if st.session_state.roadmap_generated:
         st.success("✅ Roadmap Generated")
+        # --- RESET BUTTON ---
+        st.markdown("---")
+        if st.button("🔄 Reset All Data", help="Clear all progress, goals, and settings for a fresh start."):
+            # Clear session state
+            for key in list(st.session_state.keys()):
+                del st.session_state[key]
+            # Clear persistent state from database
+            pm.clear_state('graph')
+            pm.clear_state('user_data')
+            pm.clear_state('learning_path')
+            pm.log_event("System", "User triggered full reset", "All user/session data cleared")
+            st.success("✅ All data reset! Please refresh the page to start over.")
+            st.stop()
     else:
         st.warning("⏳ No roadmap yet")
     
