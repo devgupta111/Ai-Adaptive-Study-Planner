@@ -67,7 +67,12 @@ class PersistenceManager:
     Handles complex object serialization and retrieval
     """
     
-    def __init__(self, db_path='study_planner.db'):
+    def __init__(self, db_path=None):
+        import os
+        if db_path is None:
+            # Store DB in user home directory for user-specific persistence
+            home = os.path.expanduser('~')
+            db_path = os.path.join(home, 'adaptive_study_planner_user.db')
         self.engine = create_engine(f'sqlite:///{db_path}')
         Base.metadata.create_all(self.engine)
         Session = sessionmaker(bind=self.engine)
